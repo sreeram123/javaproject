@@ -1,4 +1,7 @@
 package student;
+
+import java.util.Date;
+import java.util.Scanner;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -8,72 +11,60 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.Scanner;
-
-public class Student implements Serializable {
+public class Student implements Serializable{
 	String name;
-	String roll;
+	String rollNo;
 	Date dob;
 	String campus;
 	
-	Student(){
-		campus=" ";
-		name = " ";
-		roll = " ";
-		Calendar c = Calendar.getInstance();
-		c.set(2000, 1, 1);
-		dob=c.getTime();
+	public Student(){
+		name = "";
+		rollNo = "";
+		Calendar cal = Calendar.getInstance();
+	    cal.set(2016, 1, 1);
+		dob = cal.getTime();
 	}
-	
-	Student(String n, String r, String c, Date d){
-		name = n;
-		roll = r;
-		campus = c;
-		dob = d;
+	public Student(String name, String roll, Date dob, String campus) {
+		this.name = name;
+		this.rollNo = roll;
+		this.dob = dob;
+		this.campus = campus;
 	}
-	
 	public String getName() {
 		return name;
 	}
-	
-	public String getRoll() {
-		return roll;
-	}
-	
-	public String getCampus() {
-		return campus;
-	}
-	
 	public Date getDate() {
 		return dob;
 	}
-	
-	public void getStudentData() {
-		Scanner sc = new Scanner(System.in);
-		int year,month,day;
-		System.out.println("Enter your name");
-		name=sc.next();
-		System.out.println("Enter your roll number");
-		roll=sc.next();
-		System.out.println("Which campus do you study in?");
-		campus=sc.next();
-		System.out.println("Enter your birthday in YYYY, MM, DD format");
-		year = sc.nextInt();
-		month = sc.nextInt();
-		day = sc.nextInt();
+	public String getRollNo() {
+		return rollNo;
+	}
+	public String getCampus() {
+		return campus;
+	}
+	public void newStudent() {
+		System.out.println("Enter Name");
+		Scanner s = new Scanner(System.in);
+		this.name = s.next();
+		System.out.println("Enter roll no");
+		this.rollNo = s.next();
+		System.out.println("Enter date of birth in day , month , year format");
+		int day, month, year;
+		day = s.nextInt();
+		month = s.nextInt();
+		year = s.nextInt();
 		Calendar cal = Calendar.getInstance();
 		cal.set(year, month-1, day);
-		dob=cal.getTime();
+		this.dob = cal.getTime();
+		System.out.println("Enter campus");
+		this.campus = s.next();
 	}
-	
 	public static Student readFile() {
-		
 		try {
 			FileInputStream f = new FileInputStream("Student.ser");
 			ObjectInputStream o = new ObjectInputStream(f);
 			Student st = (Student)o.readObject();
-			Student s = new Student(st.getName(), st.getRoll(), st.getCampus(), st.getDate());
+			Student s = new Student(st.getName(), st.getRollNo(), st.getDate(), st.getCampus());
 			return s;
 		}
 		
@@ -90,12 +81,11 @@ public class Student implements Serializable {
 		}
 		return null;
 	}
-	
-	public static void writeToFile(Student st) {
+	public static void writeFile(Student st) {
 		try {
 			FileOutputStream f = new FileOutputStream("Student.ser", true);
 			ObjectOutputStream o = new ObjectOutputStream(f);
-			Student s = new Student(st.name,st.roll,st.campus,st.dob);
+			Student s = new Student(st.name,st.rollNo,st.dob,st.campus);
 			o.writeObject(s);
 		}
 		
@@ -107,28 +97,15 @@ public class Student implements Serializable {
 			System.out.println("File may be corrupt!");
 		}	
 	}
-	
-	public void displayData() {
-		System.out.println("Name:"+name);
-		System.out.println("Roll Number:"+roll);
-		System.out.println("Campus:"+campus);
-		SimpleDateFormat d = new SimpleDateFormat("dd/mm/yyyy");
-		System.out.println(d.format(dob));
+	public void printDetails() {
+		SimpleDateFormat dateOnly = new SimpleDateFormat("dd/MM/yyyy");
+		System.out.println("Name:" + name + "\n" + "Roll No:" + rollNo + "\n" + "dob:" + dateOnly.format(dob) + "\n" + "Campus:" + campus);
 		
 	}
-	
-	public static void main(String args[])
-	{
-		Student p = new Student();
-		Student s = new Student();
-		p.getStudentData();
-		s.getStudentData();
-		Student.writeToFile(p);
-		Student.writeToFile(s);
-		p=Student.readFile();
-		p.displayData();
-		s=Student.readFile();
-		s.displayData();
+	public static void main(String[] args) {
+		Student st = new Student();
+		st.newStudent();
+		st.printDetails();
 	}
 	
 }

@@ -6,9 +6,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class ParentDetails {
+public class ParentDetails implements Serializable {
 	
 	String dadname;
 	String momname;
@@ -68,7 +69,7 @@ public class ParentDetails {
 		dadname=sc.next();
 		System.out.println("Enter your Mother's Name");
 		momname=sc.next();
-		System.out.println("Enter your phone number");
+		System.out.println("Enter your father's phone number");
 		pno=sc.next();
 		int l=pno.length();
 		if(l!=10) throw new InvalidPhoneNoException();
@@ -92,48 +93,41 @@ public class ParentDetails {
 		}
 	}
 	
-public void readFile() {
-		
+	public void readFile() {
 		try {
-			FileInputStream f = new FileInputStream("Personal.ser");
-			ObjectInputStream o = new ObjectInputStream(f);
-			ParentDetails pd = (ParentDetails)o.readObject();
-			dadname=pd.getDadName();
-			momname=pd.getMomName();
-			pno  = pd.getPhoneNo();
-			email = pd.getEmail();
-			occupation=pd.getOccupation();
-		}
+			FileInputStream fin = new FileInputStream("ParentDetail.ser");
+			ObjectInputStream ois = new ObjectInputStream(fin);
+			ParentDetails p = (ParentDetails) ois.readObject();
+			this.dadname = p.dadname;
+			this.momname = p.momname;
+			this.email = p.email;
+			this.pno = p.pno;
+			this.occupation = p.occupation;
+			fin.close();
+		}catch (FileNotFoundException fnf){
+			System.out.println(fnf);
+			
+		}catch (IOException ioe) {
+			System.out.println(ioe);
+		}catch (ClassNotFoundException cnf) {
+			System.out.println(cnf);
 		
-		catch(FileNotFoundException fof) {
-			System.out.println("File not found!");
 		}
-		
-		catch(IOException ioe) {
-			System.out.println("File may be corrupt!");
-		}
-		
-		catch(ClassNotFoundException cnf) {
-			System.out.println("Class not found!");
-		}	
 	}
-	
-	public void writeToFile() {
+	public void writeFile() {
 		try {
-			FileOutputStream f = new FileOutputStream("Personal.ser");
-			ObjectOutputStream o = new ObjectOutputStream(f);
-			ParentDetails s = new ParentDetails(dadname,momname,email,pno,occupation);
-			o.writeObject(s);
-			f.close();
-		}
+			FileOutputStream fout = new FileOutputStream("ParentDetail.ser");
+			ObjectOutputStream oos = new ObjectOutputStream(fout);
+			ParentDetails p = new ParentDetails(this.dadname, this.momname, this.email, this.pno, this.occupation);
+			oos.writeObject(p);
+			fout.close();
+		}catch (FileNotFoundException fnf){
+			System.out.println(fnf);
+			
+		}catch (IOException ioe) {
+			System.out.println(ioe);
 		
-		catch(FileNotFoundException fof) {
-			System.out.println("File not found!");
 		}
-		
-		catch(IOException ioe) {
-			System.out.println("File may be corrupt!");
-		}	
 	}
 	
 	public void displayData() {
@@ -144,7 +138,14 @@ public void readFile() {
 		System.out.println("Occupation:"+occupation);
 	}
 	
-	//test
+	public static void main(String args[])
+	{
+		ParentDetails p = new ParentDetails();
+		p.getParentDetails();
+		p.writeFile();
+		p.readFile();
+		p.displayData();
+	}
 	
 	
 	
