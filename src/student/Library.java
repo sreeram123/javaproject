@@ -50,7 +50,7 @@ public class Library {
 	public String toString()
 	{
 		SimpleDateFormat dateOnly = new SimpleDateFormat("dd/MM/yyyy");
-		return book.toString() + "Date Issued: " + dateOnly.format(issuedate) + "\n" + "Date Due:" + dateOnly.format(duedate) + "\n" + "Fine:" + due.getFine() ; 
+		return book.toString() + "Date Issued: " + dateOnly.format(issuedate) + "\n" + "Date Due:" + dateOnly.format(duedate) + "\n" + "Fine:" + due.getFine() + "\n" ;
 	}
 	
 	public void addFine()
@@ -64,6 +64,13 @@ public class Library {
 		b.setBookDetails();
 		book = b;
 	}
+
+	public Dues getFine()
+	{
+		return due;
+	}
+
+
 	
 	public static void main(String args[])
 	{

@@ -45,6 +45,11 @@ public class Dues {
 	{
 		return remark;
 	}
+
+	public String toString()
+	{
+		return "Fine: " + fine + "\n" + "Remarks: " + remark + "\n";
+	}
 	
 
 }
