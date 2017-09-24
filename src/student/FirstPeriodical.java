@@ -31,4 +31,14 @@ public class FirstPeriodical {
         mark  = sc.nextInt();
     }
 
+    public String toString()
+    {
+        return "First Periodical: "+ mark;
+    }
+
+    public void print()
+    {
+        System.out.println(toString());
+    }
+
 }

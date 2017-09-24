@@ -31,4 +31,14 @@ public class EndSem {
         mark  = sc.nextInt();
     }
 
+    public String toString()
+    {
+        return "End Sem: "+ mark;
+    }
+
+    public void print()
+    {
+        System.out.println(toString());
+    }
+
 }

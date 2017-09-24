@@ -1,15 +1,15 @@
 package student;
 
 import java.util.Scanner;
-public class InternalAssessment {
+public class ContinuousAssessment {
     int mark;
 
-    InternalAssessment()
+    ContinuousAssessment()
     {
         mark = 0;
     }
 
-    InternalAssessment(int m)
+    ContinuousAssessment(int m)
     {
         mark = m;
     }
@@ -30,5 +30,16 @@ public class InternalAssessment {
         System.out.println("Enter the mark");
         mark  = sc.nextInt();
     }
+
+    public String toString()
+    {
+        return "Continous assessment marks:"+mark;
+    }
+
+    public void print()
+    {
+        System.out.println(toString());
+    }
+
 
 }
