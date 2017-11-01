@@ -10,7 +10,7 @@ public class GPA {
 
     public void calculateGPA(Internals i, EndSem s)
     {
-        gpa = (i.getMark()+s.getMark())/10;
+        gpa = (i.getMark()+(s.getMark()/2))/10;
     }
 
     public float getGPA()

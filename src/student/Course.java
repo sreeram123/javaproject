@@ -19,6 +19,7 @@ public class Course {
         em = new EndSem();
         in = new Internals();
         cm = new ContinuousAssessment();
+        g= new GPA();
     }
 
     public void addCourse()
@@ -42,11 +43,25 @@ public class Course {
 
     public String toString()
     {
-        return "Course Name:"+coursename + " " + "Course Code:" + coursecode + " "+fp.toString()+sp.toString()+em.toString()+in.toString()+cm.toString();
+        return "Course Name:"+coursename + " " + "Course Code:" + coursecode + " "+fp.toString()+sp.toString()+em.toString()+in.toString()+cm.toString()+g.toString();
     }
 
     public void print()
     {
+        System.out.print(toString());
+    }
+
+    public static void main(String args[])
+    {
+        Course c = new Course();
+        c.addCourse();
+        c.fp.addMark();
+        c.sp.addMark();
+        c.em.addMark();
+        c.cm.addMark();
+        c.CalculateInternal();
+        c.CalculateGPA();
+        c.print();
 
     }
 }

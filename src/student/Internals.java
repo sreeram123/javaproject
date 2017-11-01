@@ -13,6 +13,7 @@ public class Internals {
         float f,s;
         f=(fp.getMark()/50)*15;
         s=(sp.getMark()/50)*15;
+
         mark=f+s+ca.getMark();
     }
 
