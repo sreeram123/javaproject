@@ -1,7 +1,7 @@
 package student;
 
 import java.util.Scanner;
-public class FirstPeriodical {
+public class FirstPeriodical implements Mark {
     int mark;
 
     FirstPeriodical()

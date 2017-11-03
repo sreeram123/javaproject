@@ -29,6 +29,12 @@ public class Course {
         coursename = sc.next();
         System.out.println("Enter the course code");
         coursecode = sc.next();
+        fp.addMark();
+        sp.addMark();
+        em.addMark();
+        cm.addMark();
+        CalculateInternal();
+        CalculateGPA();
     }
 
     public void CalculateInternal()
@@ -51,17 +57,4 @@ public class Course {
         System.out.print(toString());
     }
 
-    public static void main(String args[])
-    {
-        Course c = new Course();
-        c.addCourse();
-        c.fp.addMark();
-        c.sp.addMark();
-        c.em.addMark();
-        c.cm.addMark();
-        c.CalculateInternal();
-        c.CalculateGPA();
-        c.print();
-
-    }
 }

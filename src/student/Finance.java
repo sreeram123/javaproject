@@ -2,14 +2,12 @@ package student;
 
 import java.util.Scanner;
 public class Finance {
-    Dues library;
     Dues departmentdue;
     int fees;
     int cd;
 
     Finance()
     {
-        library = new Dues();
         departmentdue = new Dues();
         fees = 0;
         cd = 5000;
@@ -28,19 +26,7 @@ public class Finance {
         fees = sc.nextInt();
     }
 
-    public void addLibraryDue()
-    {
-        if(library.getFine()==0)
-            library.newDue();
-        else
-        {
-            Scanner sc = new Scanner(System.in);
-            System.out.println("Enter fine amount");
-            int f = sc.nextInt();
-            f=f+library.getFine();
-            library.setFine(f);
-        }
-    }
+
 
     public void addDepartmentDue()
     {
@@ -58,7 +44,7 @@ public class Finance {
 
     public String toString()
     {
-        return "Fee amount: " + fees + "\n" + "Caution Deposit: " + cd + library.toString() + departmentdue.toString();
+        return "Fee amount: " + fees + "\n" + "Caution Deposit: " + cd + " " +  departmentdue.toString();
     }
 
     public void printFinancials()
@@ -72,7 +58,6 @@ public class Finance {
         Finance f = new Finance();
         f.addFinance();
         f.addDepartmentDue();
-        f.addLibraryDue();
         f.printFinancials();
     }
 

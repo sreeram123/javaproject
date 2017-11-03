@@ -1,7 +1,7 @@
 package student;
 
 import java.util.Scanner;
-public class ContinuousAssessment {
+public class ContinuousAssessment implements Mark {
     int mark;
 
     ContinuousAssessment()

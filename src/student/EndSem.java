@@ -1,7 +1,7 @@
 package student;
 
 import java.util.Scanner;
-public class EndSem {
+public class EndSem implements Mark{
     int mark;
 
     EndSem()

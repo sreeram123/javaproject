@@ -1,6 +1,6 @@
 package student;
 
-public class Internals {
+public class Internals{
     float mark;
 
     public Internals()
