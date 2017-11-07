@@ -1,6 +1,8 @@
 package student;
 
-public class GPA {
+import java.io.Serializable;
+
+public class GPA implements Serializable {
     float gpa;
 
     public GPA()

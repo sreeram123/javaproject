@@ -1,8 +1,9 @@
 package student;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class  Club {
+public class  Club implements Serializable {
     String c;
 
     Club(){

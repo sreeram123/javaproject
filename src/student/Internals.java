@@ -1,6 +1,8 @@
 package student;
 
-public class Internals{
+import java.io.Serializable;
+
+public class Internals implements Serializable {
     float mark;
 
     public Internals()

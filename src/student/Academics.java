@@ -1,8 +1,9 @@
 package student;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Academics {
+public class Academics implements Serializable {
     ArrayList<Semester> sem;
 
     Academics()

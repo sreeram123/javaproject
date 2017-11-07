@@ -1,8 +1,9 @@
 package student;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class Event {
+public class Event implements Serializable {
     String eventName;
     String prize;
 

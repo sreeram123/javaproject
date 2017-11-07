@@ -1,7 +1,8 @@
 package student;
 
+import java.io.Serializable;
 import java.util.Scanner;
-public class SecondPeriodical implements Mark{
+public class SecondPeriodical implements Mark, Serializable{
     int mark;
 
     SecondPeriodical()
@@ -27,7 +28,7 @@ public class SecondPeriodical implements Mark{
     public void addMark()
     {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the mark");
+        System.out.println("Enter second periodical marks");
         mark  = sc.nextInt();
     }
 

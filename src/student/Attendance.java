@@ -1,8 +1,9 @@
 package student;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class Attendance {
+public class Attendance implements Serializable {
     String date;
     boolean att;
     public Attendance(){

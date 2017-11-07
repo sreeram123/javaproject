@@ -1,7 +1,8 @@
 package student;
 
+import java.io.Serializable;
 import java.util.Scanner;
-public class Dues {
+public class Dues implements Serializable {
 	int fine;
 	String remark;
 	

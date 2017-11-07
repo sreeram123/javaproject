@@ -1,7 +1,8 @@
 package student;
 
+import java.io.Serializable;
 import java.util.Scanner;
-public class EndSem implements Mark{
+public class EndSem implements Mark, Serializable{
     int mark;
 
     EndSem()
@@ -27,7 +28,7 @@ public class EndSem implements Mark{
     public void addMark()
     {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the mark");
+        System.out.println("Enter End Semester marks");
         mark  = sc.nextInt();
     }
 

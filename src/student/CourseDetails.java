@@ -65,7 +65,7 @@ public class CourseDetails implements Serializable {
 	}
 	
 	public void displayData() {
-		System.out.println("Degree"+degree);
+		System.out.println("Degree:"+degree);
 		System.out.println("Course:"+course);
 		System.out.println("Batch:"+batch);
 		System.out.println("Year:"+year);

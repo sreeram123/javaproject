@@ -1,8 +1,9 @@
 package student;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class StudentDiary {
+public class StudentDiary implements Serializable {
     Student st;
     Personal pers;
     ParentDetails pd;
@@ -73,6 +74,8 @@ public class StudentDiary {
 
                 case 6:{
                     System.out.println("Which semester are you in?");
+                    int semm=sc.nextInt();
+                    System.out.println("How many courses do you have?");
                     int k = sc.nextInt();
                     for(int i=0;i<k;i++) {
                         acc.addSemester();
@@ -103,9 +106,18 @@ public class StudentDiary {
         }
     }
 
-    public static void main(String args[])
+
+    public void displaydetails()
     {
-        StudentDiary sd = new StudentDiary();
-        sd.addnewStudent();
+        st.printDetails();
+        pers.displayData();
+        pd.displayData();
+        cd.displayData();
+        att.print();
+        c.print();
+        f.printFinancials();
+        h.print();
     }
+
+
 }

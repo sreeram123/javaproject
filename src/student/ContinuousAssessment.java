@@ -1,7 +1,8 @@
 package student;
 
+import java.io.Serializable;
 import java.util.Scanner;
-public class ContinuousAssessment implements Mark {
+public class ContinuousAssessment implements Mark , Serializable {
     int mark;
 
     ContinuousAssessment()
@@ -27,7 +28,7 @@ public class ContinuousAssessment implements Mark {
     public void addMark()
     {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the mark");
+        System.out.println("Enter Continuous Assessment marks");
         mark  = sc.nextInt();
     }
 

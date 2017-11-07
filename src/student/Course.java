@@ -1,7 +1,8 @@
 package student;
 
+import java.io.Serializable;
 import java.util.Scanner;
-public class Course {
+public class Course implements Serializable {
 
     String coursename;
     String coursecode;

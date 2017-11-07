@@ -1,7 +1,8 @@
 package student;
 
+import java.io.Serializable;
 import java.util.Scanner;
-public class Finance {
+public class Finance implements Serializable {
     Dues departmentdue;
     int fees;
     int cd;
