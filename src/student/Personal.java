@@ -120,14 +120,6 @@ public void readFile() {
 		System.out.println("Email:"+email);
 	}
 	
-	public static void main(String args[])
-	{
-		Personal p = new Personal();
-		p.getPersonalData();
-		p.writeToFile();
-		p.readFile();
-		p.displayData();
-	}
-		
+
 	
 }

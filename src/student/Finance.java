@@ -54,13 +54,7 @@ public class Finance implements Serializable {
     }
 
 
-    public static void main(String args[])
-    {
-        Finance f = new Finance();
-        f.addFinance();
-        f.addDepartmentDue();
-        f.printFinancials();
-    }
+
 
 
 }

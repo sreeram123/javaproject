@@ -76,12 +76,7 @@ public class CourseDetails implements Serializable {
 		return degree + "\n"+ course + "\n" + batch + "\n" + year;
 	}
 	
-	public static void main(String args[])
-	{
-		CourseDetails c = new CourseDetails();
-		c.getCourseDetails();
-		System.out.println(c.toString());
-	}
+
 	
 	
 }

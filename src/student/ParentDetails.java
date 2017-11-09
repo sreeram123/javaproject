@@ -137,16 +137,7 @@ public class ParentDetails implements Serializable {
 		System.out.println("Email:"+email);
 		System.out.println("Occupation:"+occupation);
 	}
-	
-	public static void main(String args[])
-	{
-		ParentDetails p = new ParentDetails();
-		p.getParentDetails();
-		p.writeFile();
-		p.readFile();
-		p.displayData();
-	}
-	
+
 	
 	
 

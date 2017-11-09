@@ -65,10 +65,5 @@ public class Student implements Serializable{
 		System.out.println("Name:" + name + "\n" + "Roll No:" + rollNo + "\n" + "dob:" + dateOnly.format(dob) + "\n" + "Campus:" + campus);
 		
 	}
-	public static void main(String[] args) {
-		Student st = new Student();
-		st.newStudent();
-		st.printDetails();
-	}
-	
+
 }
