@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 public class CGPA implements Serializable {
     float cgpa;
+    ghg
 
     CGPA()
     {
